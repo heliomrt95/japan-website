@@ -1,0 +1,409 @@
+/* ==================== SECTION CULTURE ==================== */
+
+#culture {
+    background: linear-gradient(
+        180deg,
+        rgba(245, 245, 247, 1) 0%,
+        rgba(249, 166, 26, 1) 50%,
+        rgba(245, 245, 247, 1) 100%
+    );
+    justify-content: space-between;
+    padding: 80px 0 40px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#culture .section-titre {
+    font-size: 10em;
+}
+
+#culture-texte {
+    scroll-margin-top: 120px;
+}
+
+/* ==================== CAROUSEL ==================== */
+
+.carousel-container {
+    width: 100%;
+    overflow: visible;
+    position: relative;
+    height: 260px;
+    scrollbar-width: none;
+    background: transparent;
+    overflow: visible !important;
+    padding-bottom: 20px;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+    overflow: visible;
+    padding: 20px 0;
+    padding-bottom: 50px;
+    z-index: 1;
+}
+
+.carousel {
+    display: flex;
+    gap: 30px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: max-content;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    overflow: visible !important;
+}
+
+.carousel img {
+    height: 200px;
+    width: 355px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+    border: 2px solid transparent;
+    transform-origin: center center;
+}
+
+.carousel img:hover {
+    border-color: var(--rouge);
+    transform: scale(1.05);
+    z-index: 100;
+}
+
+/* ==================== SLIDER CULTURE ==================== */
+
+.culture-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+}
+
+.culture-slides-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 700px;
+}
+
+.culture-slides {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.culture-slide {
+    min-width: 100%;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.culture-slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.culture-slide.clone {
+    opacity: 1 !important;
+    pointer-events: none;
+    transform: scale(1) !important;
+}
+
+.culture-slide h2 {
+    font-family: 'Ephesis', cursive;
+    font-size: 8em;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: var(--blanc);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.culture-slide p {
+    font-family: 'Alan Sans';
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: var(--blanc);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    margin: 0;
+}
+
+/* ==================== FLÈCHES CULTURE ==================== */
+
+.culture-arrow {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3));
+    flex-shrink: 0;
+}
+
+.culture-arrow path {
+    stroke: var(--blanc);
+    transition: stroke 0.3s ease;
+}
+
+.culture-arrow:hover {
+    transform: scale(1.2);
+}
+
+.culture-arrow:hover path {
+    stroke: var(--rouge);
+}
+
+.culture-arrow:active {
+    transform: scale(0.9);
+}
+
+/* Flèches desktop visibles par défaut */
+.culture-arrow.desktop-only {
+    display: block;
+}
+
+/* Flèches mobiles cachées par défaut */
+.culture-arrows-mobile {
+    display: none;
+}
+
+/* ==================== DOTS NAVIGATION ==================== */
+
+.culture-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.culture-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.culture-dot:hover {
+    background: rgba(255, 255, 255, 0.7);
+    transform: scale(1.2);
+}
+
+.culture-dot.active {
+    background: var(--rouge);
+    transform: scale(1.2);
+}
+
+/* ==================== WRAPPER IMAGES CAROUSEL ==================== */
+
+.carousel-img-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+}
+
+.carousel-img-wrapper img {
+    display: block;
+}
+
+/* Zone de hover étendue pour le carousel */
+.carousel-img-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+/* ==================== CAROUSEL IMAGE EXPANDED ==================== */
+
+.carousel-image-expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 20px;
+    border: 3px solid var(--rouge);
+    box-shadow: 
+        0 30px 80px rgba(200, 50, 50, 0.3),
+        0 15px 40px rgba(0, 0, 0, 0.2);
+    z-index: 10001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    object-fit: contain;
+}
+
+.carousel-image-expanded.expanded {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ==================== RESPONSIVE CULTURE ==================== */
+
+@media screen and (max-width: 768px) {
+    #culture {
+        padding: 60px 0 40px 0;
+    }
+    
+    /* Titre réduit pour mobile */
+    #culture .section-titre {
+        font-size: 6em;
+        line-height: 1.1;
+    }
+    
+    /* Cache les carousels sur mobile */
+    .carousel-wrapper {
+        display: none;
+    }
+    
+    /* Slider Culture Mobile - Texte lisible */
+    .text-content {
+        padding: 25px 20px;
+        margin: 20px 15px;
+        box-sizing: border-box;
+        width: calc(100% - 30px);
+        max-width: none;
+    }
+    
+    #culture-texte {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        border: 1px solid rgba(249, 166, 26, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    
+    .culture-slider {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        position: relative;
+        padding-bottom: 70px; /* Espace pour les flèches en bas */
+    }
+    
+    .culture-slides-container {
+        max-width: 100%;
+        width: 100%;
+        overflow: hidden;
+        order: 1;
+    }
+    
+    .culture-slide h2 {
+        font-size: 4em;
+        margin-bottom: 20px;
+        color: var(--orange);
+        text-shadow: none;
+        line-height: 1.2;
+    }
+    
+    .culture-slide p {
+        font-size: 1em;
+        line-height: 1.7;
+        padding: 0 10px;
+        color: var(--texte);
+        text-shadow: none;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Flèches repositionnées en bas sur mobile */
+    .culture-arrow-left,
+    .culture-arrow-right {
+        position: absolute;
+        bottom: 10px;
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        background: rgba(249, 166, 26, 0.15);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+        filter: none;
+    }
+    
+    .culture-arrow-left {
+        left: calc(50% - 55px);
+    }
+    
+    .culture-arrow-right {
+        right: calc(50% - 55px);
+    }
+    
+    .culture-arrow-left path,
+    .culture-arrow-right path {
+        stroke: var(--orange);
+    }
+    
+    .culture-arrow-left:hover,
+    .culture-arrow-right:hover {
+        background: var(--orange);
+        transform: scale(1.1);
+    }
+    
+    .culture-arrow-left:hover path,
+    .culture-arrow-right:hover path {
+        stroke: white;
+    }
+    
+    /* Dots */
+    .culture-dots {
+        margin-top: 20px;
+        gap: 10px;
+    }
+    
+    .culture-dot {
+        width: 10px;
+        height: 10px;
+        background: rgba(249, 166, 26, 0.3);
+    }
+    
+    .culture-dot.active {
+        background: var(--orange);
+    }
+
+    /* Carousel réduit sur mobile */
+    .carousel-container {
+        height: 130px;
+        padding-bottom: 10px;
+    }
+
+    .carousel img {
+        height: 120px;
+        width: 213px;
+        border-radius: 12px;
+    }
+
+    .carousel {
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #culture .section-titre {
+        font-size: 4em;
+    }
+    
+    .carousel-container {
+        height: 120px;
+    }
+
+    .carousel img {
+        height: 110px;
+        width: 195px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    #culture .section-titre {
+        font-size: 3.5em;
+    }
+}

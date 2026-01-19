@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japon</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo/flagjapon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Dela+Gothic+One&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Imperial+Script&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- CSS modulaire -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/welcome.css">
+    <link rel="stylesheet" href="assets/css/culture.css">
+    <link rel="stylesheet" href="assets/css/histoire.css">
+    <link rel="stylesheet" href="assets/css/technologie.css">
+    <link rel="stylesheet" href="assets/css/societe.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <style>
+        /* Loader initial pour masquer le contenu */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .page-loader span {
+            color: #fff;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 2rem;
+        }
+    </style>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="page-loader">
+        <span>日本</span>
+    </div>
+    
+    <div class="histoire-overlay"></div>
+    
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#histoire">Histoire</a></li>
+                <li><a href="#culture-texte">Culture</a></li>
+                <li><a href="#technologie">Technologie</a></li>
+                <li><a href="#societe">Société</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Bouton Hamburger -->
+        <button class="hamburger" aria-label="Menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        
+        <!-- Menu Mobile Overlay -->
+        <div class="mobile-menu-overlay"></div>
+        
+        <!-- Menu Mobile -->
+        <nav class="mobile-menu">
+            <ul>
+                <li><a href="#histoire">Histoire</a></li>
+                <li><a href="#culture">Culture</a></li>
+                <li><a href="#technologie">Technologie</a></li>
+                <li><a href="#societe">Société</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="welcome-section" id="welcome">
+        <div class="video-container">
+            <div class="arrow-container">
+                <svg class="arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"/>
+                </svg>
+            </div>
+            <h1 class="titre"><span style="font-size: 40px;">日本<br></span>Japon</h1>
+            <video autoplay muted loop>
+                <source src="assets/video/fond1.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <section class="content-section" id="histoire">
+            <h2 class="section-titre">Son Histoire</h2>
+            <div class="timeline-spacer"></div>
+            <div class="timeline-container">
+                <svg class="timeline-svg" preserveAspectRatio="none">
+                    <!-- Point fixe au début du tracé -->
+                    <circle class="timeline-start-circle" cx="50" cy="0" r="8"></circle>
+                    <path id="animatedPath" class="timeline-path" d="M 50 0"></path>
+                    <circle class="timeline-progress-circle" cx="50" cy="0" r="6"></circle>
+                </svg>
+                
+                <div class="histoire-content">
+                    <div class="histoire-row">
+                            <div class="histoire-illustration-bg">
+                                <img src="assets/illustrations/ilu1.png" alt="Illustration Ère Jōmon">
+                            </div>
+                            <div class="histoire-block">
+                                <h3>Ère Jōmon (14 000 - 300 av. J.-C.)</h3>
+                                <p>Les premières traces de civilisation japonaise, caractérisées par une poterie distinctive aux motifs de corde.</p>
+                                <div class="histoire-details">
+                                    <p>L'ère Jōmon représente la plus longue période de l'histoire japonaise. Les habitants vivaient de la chasse, de la pêche et de la cueillette. Ils ont créé les premières poteries du monde, ornées de motifs de corde ("jōmon" signifie "motifs de corde"). Ces communautés ont développé une spiritualité animiste complexe, vénérant les forces de la nature et créant des figurines en argile appelées dogū, probablement utilisées dans des rituels de fertilité.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="histoire-row">
+                            <div class="histoire-illustration-bg">
+                                <img src="assets/illustrations/ilu2.png" alt="Illustration Samouraïs">
+                            </div>
+                            <div class="histoire-block">
+                                <h3>Période des Samouraïs (1185 - 1868)</h3>
+                                <p>L'émergence de la classe guerrière qui définira le Japon pendant près de 700 ans, avec le code du bushidō.</p>
+                                <div class="histoire-details">
+                                    <p>Les samouraïs formaient une caste de guerriers d'élite qui ont dominé le Japon féodal. Ils suivaient le bushidō, un code d'honneur strict prônant la loyauté, le courage et l'autodiscipline. Cette période a vu l'émergence des shoguns, des seigneurs militaires qui détenaient le véritable pouvoir politique. L'art du sabre (kenjutsu), l'art martial et la poésie étaient au cœur de leur formation. Les châteaux japonais emblématiques comme Himeji et Osaka ont été construits durant cette ère.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="histoire-row">
+                            <div class="histoire-illustration-bg">
+                                <img src="assets/illustrations/ilu3.png" alt="Illustration Ère Meiji">
+                            </div>
+                            <div class="histoire-block">
+                                <h3>Ère Meiji (1868 - 1912)</h3>
+                                <p>La restauration qui propulse le Japon dans la modernité, adoptant les technologies occidentales tout en préservant son identité.</p>
+                                <div class="histoire-details">
+                                    <p>La restauration Meiji a transformé le Japon d'une société féodale isolée en une puissance industrielle moderne en seulement quelques décennies. L'empereur Meiji a aboli le système des samouraïs, modernisé l'armée, créé un système éducatif national et développé les chemins de fer et l'industrie. Le slogan "Civilisation et Lumières" (Bunmei Kaika) encourageait l'adoption des sciences et technologies occidentales tout en préservant "l'esprit japonais" (Wakon Yōsai).</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="histoire-row">
+                            <div class="histoire-illustration-bg">
+                                <img src="assets/illustrations/ilu4.png" alt="Illustration Japon Moderne">
+                            </div>
+                            <div class="histoire-block">
+                                <h3>Japon Moderne (1945 - Aujourd'hui)</h3>
+                                <p>De la reconstruction d'après-guerre à l'une des plus grandes puissances économiques et technologiques mondiales.</p>
+                                <div class="histoire-details">
+                                    <p>Après la Seconde Guerre mondiale, le Japon a connu une reconstruction miraculeuse, passant des ruines à la deuxième économie mondiale en seulement trois décennies. Le "miracle économique japonais" a été alimenté par l'innovation technologique, une main-d'œuvre disciplinée et des entreprises comme Toyota, Sony et Honda. Aujourd'hui, le Japon est un leader mondial en robotique, en technologie et en culture pop, tout en préservant ses traditions millénaires.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="culture">
+            <div class="carousel-wrapper">
+                <div class="carousel-container">
+                    <div class="carousel carousel-top">
+                        <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800" alt="Tokyo">
+                        <img src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=800" alt="Temple">
+                        <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=800" alt="Mont Fuji">
+                        <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=800" alt="Kyoto">
+                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800" alt="Shibuya">
+                        <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800" alt="Tokyo">
+                        <img src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=800" alt="Temple">
+                        <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=800" alt="Mont Fuji">
+                        <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=800" alt="Kyoto">
+                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800" alt="Shibuya">
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-content" id="culture-texte">
+    <div class="culture-slider">
+        <svg class="culture-arrow culture-arrow-left" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
+        </svg>
+        
+        <div class="culture-slides-container">
+            <div class="culture-slides">
+                <div class="culture-slide active">
+                    <h2>Une Culture Millénaire</h2>
+                    <p>Entre temples ancestraux et gratte-ciels futuristes, le Japon incarne l'harmonie parfaite entre tradition et modernité.</p>
+                </div>
+                <div class="culture-slide">
+                    <h2>L'Art du Thé</h2>
+                    <p>La cérémonie du thé, ou Sadō, est bien plus qu'une simple boisson. C'est une philosophie de vie, un moment de méditation et de connexion avec l'instant présent.</p>
+                </div>
+                <div class="culture-slide">
+                    <h2>Les Saisons</h2>
+                    <p>Les Japonais célèbrent chaque saison avec passion : les cerisiers au printemps (Hanami), les feux d'artifice en été, les érables rouges en automne (Momiji).</p>
+                </div>
+                <div class="culture-slide">
+                    <h2>L'Harmonie</h2>
+                    <p>Le concept de "Wa" (和) représente l'harmonie et l'équilibre. Il guide les relations sociales et l'esthétique japonaise depuis des siècles.</p>
+                </div>
+            </div>
+        </div>
+        
+        <svg class="culture-arrow culture-arrow-right" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 13 5.7-5.326a.91.91 0 0 0 0-1.348L1 1"/>
+        </svg>
+    </div>
+    
+    <div class="culture-dots">
+        <span class="culture-dot active" data-slide="0"></span>
+        <span class="culture-dot" data-slide="1"></span>
+        <span class="culture-dot" data-slide="2"></span>
+        <span class="culture-dot" data-slide="3"></span>
+    </div>
+</div>
+
+            <div class="carousel-wrapper">
+                <div class="carousel-container">
+                    <div class="carousel carousel-bottom">
+                        <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=800" alt="Ramen">
+                        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800" alt="Jardin zen">
+                        <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800" alt="Rue japonaise">
+                        <img src="https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=800" alt="Bambou">
+                        <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=800" alt="Geisha">
+                        <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=800" alt="Ramen">
+                        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800" alt="Jardin zen">
+                        <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800" alt="Rue japonaise">
+                        <img src="https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=800" alt="Bambou">
+                        <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=800" alt="Geisha">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="technologie">
+            <div class="section-container">
+                <h2 class="section-titre">Innovation Technologique</h2>
+                <div class="tech-content">
+                    <div class="tech-card">
+                        <div class="tech-card-inner">
+                            <div class="tech-card-front">
+                        <h3>Robotique</h3>
+                            </div>
+                            <div class="tech-card-back">
+                        <p>Leader mondial dans la robotique, le Japon développe des robots pour l'industrie, les soins de santé et la vie quotidienne.</p>
+                                <span class="tech-card-plus">+</span>
+                            </div>
+                        </div>
+                        <div class="tech-card-details" hidden>
+                            <p>Le Japon compte plus de 300 000 robots industriels en activité, soit près de 30% du parc mondial. Des entreprises comme FANUC, Yaskawa et Kawasaki Heavy Industries dominent le marché. Les robots humanoïdes comme ASIMO (Honda) et Pepper (SoftBank) ont révolutionné l'interaction homme-machine. Le gouvernement investit massivement dans la "Robot Revolution" pour pallier le vieillissement de la population, avec des robots d'assistance aux personnes âgées et des exosquelettes de soutien.</p>
+                        </div>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-card-inner">
+                            <div class="tech-card-front">
+                        <h3>Trains à Grande Vitesse</h3>
+                            </div>
+                            <div class="tech-card-back">
+                        <p>Le Shinkansen, symbole d'efficacité et de ponctualité, révolutionne le transport depuis 1964.</p>
+                                <span class="tech-card-plus">+</span>
+                            </div>
+                        </div>
+                        <div class="tech-card-details" hidden>
+                            <p>Inauguré lors des Jeux Olympiques de Tokyo en 1964, le Shinkansen a transporté plus de 10 milliards de passagers sans aucun accident mortel. Le dernier modèle N700S atteint 360 km/h en service commercial. Le réseau s'étend sur 3 000 km et relie les principales villes du Japon. Le retard moyen est de moins de 1 minute par an. Le projet du Chuo Shinkansen, un train à sustentation magnétique (maglev), promet des vitesses de 500 km/h pour 2027.</p>
+                        </div>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-card-inner">
+                            <div class="tech-card-front">
+                        <h3>Électronique</h3>
+                            </div>
+                            <div class="tech-card-back">
+                        <p>Des marques emblématiques comme Sony, Nintendo et Panasonic définissent l'innovation électronique mondiale.</p>
+                                <span class="tech-card-plus">+</span>
+                            </div>
+                        </div>
+                        <div class="tech-card-details" hidden>
+                            <p>L'industrie électronique japonaise a façonné le monde moderne : le Walkman (Sony, 1979), la Game Boy (Nintendo, 1989), le DVD et le Blu-ray. Aujourd'hui, le Japon domine les composants critiques : 90% des capteurs d'image mondiaux (Sony), les semi-conducteurs de pointe, et les matériaux essentiels comme les wafers de silicium. Nintendo continue d'innover avec la Switch, tandis que Sony excelle dans les capteurs photo pour smartphones et l'industrie du jeu vidéo avec PlayStation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="societe">
+            <div class="section-container">
+                <h2 class="section-titre">Société et Art de Vivre</h2>
+                
+                <!-- Version Desktop: Masonry Grid -->
+                <div class="masonry-grid">
+                    <div class="masonry-card masonry-tall">
+                        <h3>Gastronomie</h3>
+                        <p>Inscrite au patrimoine mondial de l'UNESCO, la cuisine "washoku" met l'accent sur la fraîcheur, la saisonnalité et la présentation.</p>
+                        <p class="masonry-extra">Du sushi au ramen en passant par le kaiseki, chaque plat est un art visuel autant que gustatif.</p>
+                        <div class="masonry-details" hidden>
+                            <p>La cuisine japonaise, ou "washoku", a été inscrite au patrimoine immatériel de l'UNESCO en 2013. Elle repose sur cinq principes fondamentaux : cinq couleurs (go-shiki), cinq saveurs (go-mi), cinq méthodes de cuisson (go-ho), cinq sens (go-kan) et cinq attitudes (go-kan-mon).</p>
+                            <p>Les chefs japonais consacrent souvent des décennies à maîtriser une seule technique. Un maître sushi s'entraîne pendant 10 ans avant de pouvoir préparer le riz, et 10 autres années pour maîtriser le poisson. Cette dévotion se retrouve dans chaque aspect de la gastronomie japonaise.</p>
+                        </div>
+                    </div>
+                    <div class="masonry-card masonry-short">
+                        <h3>Harmonie</h3>
+                        <p>Les concepts de "Omotenashi" (hospitalité) et de "Wa" (harmonie de groupe) sont fondamentaux.</p>
+                        <div class="masonry-details" hidden>
+                            <p>L'Omotenashi représente l'hospitalité japonaise dans sa forme la plus pure : anticiper les besoins de l'autre sans attendre de retour. Ce concept imprègne tous les aspects de la société, du service en restaurant à l'accueil dans les ryokan traditionnels.</p>
+                            <p>Le "Wa" (和), quant à lui, est le concept central de l'harmonie sociale. Il privilégie le consensus et évite les conflits directs, façonnant les relations professionnelles et personnelles au Japon.</p>
+                        </div>
+                    </div>
+                    <div class="masonry-card masonry-medium">
+                        <h3>Pop Culture</h3>
+                        <p>Des mangas et animés au J-Pop, l'influence culturelle moderne du Japon rayonne à travers le monde entier.</p>
+                        <p class="masonry-extra">Nintendo, Studio Ghibli, One Piece... Une culture qui inspire des millions de fans.</p>
+                        <div class="masonry-details" hidden>
+                            <p>Le Japon est le berceau du manga et de l'anime, industries culturelles qui génèrent des milliards de dollars et influencent la création mondiale. Des œuvres comme Dragon Ball, Naruto, One Piece et les films de Hayao Miyazaki ont transcendé les frontières.</p>
+                            <p>Le J-Pop et le J-Rock ont également conquis un public international, tandis que les jeux vidéo japonais (Nintendo, Sony, Capcom) continuent de définir les standards de l'industrie.</p>
+                        </div>
+                    </div>
+                    <div class="masonry-card masonry-tall">
+                        <h3>Arts Traditionnels</h3>
+                        <p>La cérémonie du thé (Sadō), l'arrangement floral (Ikebana) et le théâtre perpétuent des savoir-faire ancestraux.</p>
+                        <p class="masonry-extra">Le Kabuki et le Noh sont inscrits au patrimoine de l'UNESCO.</p>
+                        <div class="masonry-details" hidden>
+                            <p>Le Sadō (voie du thé) est bien plus qu'une simple préparation de boisson : c'est une philosophie de vie incarnant les principes zen de "Wa" (harmonie), "Kei" (respect), "Sei" (pureté) et "Jaku" (tranquillité).</p>
+                            <p>L'Ikebana, art floral japonais, va au-delà de la simple décoration. Il représente la nature dans son essence, jouant sur les lignes, les espaces vides et les saisons. Le théâtre Noh, avec ses masques expressifs et ses mouvements codifiés, remonte au XIVe siècle.</p>
+                        </div>
+                    </div>
+                    <div class="masonry-card masonry-medium">
+                        <h3>Architecture</h3>
+                        <p>Des temples zen aux gratte-ciels futuristes, le Japon marie tradition et modernité dans son paysage urbain.</p>
+                        <div class="masonry-details" hidden>
+                            <p>L'architecture japonaise traditionnelle se caractérise par l'utilisation du bois, des espaces ouverts (ma), et une intégration harmonieuse avec la nature. Les temples de Kyoto et Nara témoignent de cette philosophie millénaire.</p>
+                            <p>L'architecture contemporaine japonaise, représentée par des maîtres comme Tadao Ando et Kengo Kuma, perpétue ces principes tout en repoussant les limites du design. Tokyo est devenue un laboratoire architectural où coexistent tradition et avant-garde.</p>
+                        </div>
+                    </div>
+                    <div class="masonry-card masonry-short">
+                        <h3>Festivals</h3>
+                        <p>Les matsuri célèbrent les saisons et honorent les divinités shinto tout au long de l'année.</p>
+                        <div class="masonry-details" hidden>
+                            <p>Le Japon compte plus de 300 000 festivals (matsuri) chaque année. Parmi les plus célèbres : le Gion Matsuri de Kyoto en juillet, le Nebuta Matsuri d'Aomori avec ses chars illuminés géants, et le Sanja Matsuri de Tokyo qui attire plus de 2 millions de visiteurs.</p>
+                            <p>Ces festivals sont l'occasion de voir le Japon traditionnel prendre vie : kimonos, danses ancestrales, musique taiko et sanctuaires portatifs (mikoshi) défilant dans les rues.</p>
+                        </div>
+                    </div>
+                    <div class="masonry-card masonry-medium no-hint">
+                        <h3>Onsen</h3>
+                        <p>Les sources chaudes naturelles sont au cœur de la culture du bien-être japonais depuis des siècles.</p>
+                        <div class="masonry-details" hidden>
+                            <p>Le Japon compte plus de 27 000 sources chaudes (onsen) réparties sur tout l'archipel. Cette tradition millénaire est bien plus qu'une simple baignade : c'est un rituel de purification du corps et de l'esprit.</p>
+                            <p>Les régions les plus célèbres incluent Hakone, Beppu et Kusatsu. Les ryokan traditionnels offrent une expérience complète : onsen privatif, repas kaiseki et futon sur tatami.</p>
+                        </div>
+                    </div>
+                    <div class="masonry-card masonry-short">
+                        <h3>Saké & Izakaya</h3>
+                        <p>L'art du saké et la convivialité des izakaya sont au cœur de la vie sociale.</p>
+                        <div class="masonry-details" hidden>
+                            <p>Le saké, brassé à partir de riz fermenté, existe depuis plus de 2000 ans. Avec plus de 1400 brasseries, le Japon produit des sakés aux profils variés : du Junmai robuste au Daiginjo délicat et floral.</p>
+                            <p>Les izakaya (tavernes japonaises) sont le lieu de détente après le travail. On y partage des petits plats (yakitori, edamame, sashimi) en buvant de la bière, du saké ou du shochu dans une ambiance décontractée.</p>
+                        </div>
+                    </div>
+                    <div class="masonry-card masonry-tall">
+                        <h3>Mode & Fashion</h3>
+                        <p>De Harajuku aux créateurs de haute couture, le Japon est un laboratoire mondial de la mode.</p>
+                        <p class="masonry-extra">Comme des Garçons, Issey Miyake, Yohji Yamamoto...</p>
+                        <div class="masonry-details" hidden>
+                            <p>Le quartier de Harajuku à Tokyo est mondialement connu pour ses styles streetwear audacieux et ses sous-cultures comme le Lolita, le Visual Kei et le Decora. Les jeunes japonais utilisent la mode comme moyen d'expression personnelle.</p>
+                            <p>Parallèlement, des designers japonais comme Rei Kawakubo (Comme des Garçons), Issey Miyake et Yohji Yamamoto ont redéfini la haute couture mondiale avec leurs approches avant-gardistes.</p>
+                        </div>
+                    </div>
+                    <div class="masonry-card masonry-medium">
+                        <h3>Vie Nocturne</h3>
+                        <p>De Shinjuku à Osaka, la nuit japonaise offre des expériences uniques et éclectiques.</p>
+                        <div class="masonry-details" hidden>
+                            <p>Les quartiers comme Kabukichō (Tokyo), Dōtonbori (Osaka) et Nakasu (Fukuoka) s'illuminent la nuit. On y trouve des karaokés sur plusieurs étages, des bars thématiques et les légendaires Golden Gai.</p>
+                            <p>Les clubs de Roppongi attirent une foule internationale, tandis que les bars à whisky japonais de Ginza offrent une expérience plus raffinée.</p>
+                        </div>
+                    </div>
+                    <div class="masonry-card masonry-short">
+                        <h3>Konbini</h3>
+                        <p>Les convenience stores japonais redéfinissent le concept de commodité 24h/24.</p>
+                        <div class="masonry-details" hidden>
+                            <p>Avec plus de 56 000 konbini (7-Eleven, Lawson, FamilyMart), le Japon a perfectionné le concept du dépanneur. On y trouve des repas frais de qualité, des services bancaires et l'envoi de colis.</p>
+                            <p>Les onigiri, sandwichs et bentos des konbini sont réputés pour leur fraîcheur et leur goût. Ces magasins sont devenus un pilier de la vie quotidienne japonaise.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Version Mobile: Accordéon -->
+                <div class="accordion-container">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Gastronomie</h3>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Inscrite au patrimoine mondial de l'UNESCO, la cuisine "washoku" met l'accent sur la fraîcheur, la saisonnalité et la présentation. Du sushi au ramen, chaque plat est un art.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Harmonie</h3>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Les concepts de "Omotenashi" (hospitalité) et de "Wa" (harmonie de groupe) sont fondamentaux dans les interactions sociales japonaises.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Pop Culture</h3>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Des mangas et animés au J-Pop, l'influence culturelle moderne du Japon rayonne à travers le monde entier. Une culture qui inspire des millions de fans.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Arts Traditionnels</h3>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                        <div class="accordion-body">
+                            <p>La cérémonie du thé (Sadō), l'arrangement floral (Ikebana) et le théâtre (Kabuki, Noh) perpétuent des savoir-faire ancestraux millénaires.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Architecture</h3>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Des temples zen aux gratte-ciels futuristes, le Japon marie tradition et modernité dans son paysage urbain.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Festivals</h3>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Les matsuri célèbrent les saisons et honorent les divinités shinto tout au long de l'année.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Onsen</h3>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Les sources chaudes naturelles sont au cœur de la culture du bien-être japonais depuis des siècles.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Saké & Izakaya</h3>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                        <div class="accordion-body">
+                            <p>L'art du saké et la convivialité des izakaya sont au cœur de la vie sociale japonaise.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Mode & Fashion</h3>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                        <div class="accordion-body">
+                            <p>De Harajuku aux créateurs de haute couture, le Japon est un laboratoire mondial de la mode.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Vie Nocturne</h3>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                        <div class="accordion-body">
+                            <p>De Shinjuku à Osaka, la nuit japonaise offre des expériences uniques et éclectiques.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Konbini</h3>
+                            <span class="accordion-arrow">▼</span>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Les convenience stores japonais redéfinissent le concept de commodité 24h/24.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Bouton retour en haut (mobile: en bas de page) -->
+        <button class="scroll-to-top" aria-label="Retour en haut">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7"/>
+            </svg>
+        </button>
+    </div>
+
+</body>
+</html>

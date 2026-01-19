@@ -1,0 +1,477 @@
+/* ==================== SECTION SOCIÉTÉ ==================== */
+
+#societe {
+    background-color: #F5F5F7;
+    background: linear-gradient(180deg, rgba(249, 166, 26, 1) 0%, rgba(245, 245, 247, 1) 100%);
+    overflow: visible;
+    padding-bottom: 40px;
+}
+
+#societe .section-titre {
+    padding-top: 10vh;
+    color: var(--blanc);
+    font-size: 10em;
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.societe-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+/* ==================== MASONRY GRID (Pinterest Style) ==================== */
+
+.masonry-grid {
+    columns: 3;
+    column-gap: 25px;
+    padding: 40px 0 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.masonry-card {
+    break-inside: avoid;
+    margin-bottom: 25px;
+    padding: 30px;
+    padding-bottom: 55px;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(255, 255, 255, 0.85) 100%
+    );
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(249, 166, 26, 0.2);
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.06),
+        0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+}
+
+/* Effet de reflet subtil */
+.masonry-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        transparent 100%
+    );
+    pointer-events: none;
+    border-radius: 20px 20px 0 0;
+}
+
+/* Hover effect - lift */
+.masonry-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(249, 166, 26, 0.15),
+        0 8px 16px rgba(0, 0, 0, 0.08);
+    border-color: var(--orange);
+}
+
+/* Icône */
+.masonry-icon {
+    font-size: 3em;
+    display: block;
+    margin-bottom: 20px;
+    transition: transform 0.4s ease;
+}
+
+.masonry-card:hover .masonry-icon {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+/* Titre */
+.masonry-card h3 {
+    font-family: 'Alan Sans', sans-serif;
+    font-size: 1.4em;
+    color: var(--orange);
+    margin: 0 0 15px 0;
+    font-weight: 600;
+    position: relative;
+}
+
+/* Ligne décorative sous le titre */
+.masonry-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), transparent);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.masonry-card:hover h3::after {
+    width: 80px;
+}
+
+/* Texte */
+.masonry-card p {
+    font-size: 1em;
+    line-height: 1.7;
+    color: var(--texte);
+    margin: 0;
+}
+
+.masonry-card .masonry-extra {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(249, 166, 26, 0.15);
+    font-size: 0.95em;
+    color: #666;
+}
+
+/* Hauteurs variées pour l'effet Pinterest */
+.masonry-short {
+    padding: 25px;
+}
+
+.masonry-medium {
+    padding: 30px;
+}
+
+.masonry-tall {
+    padding: 35px;
+}
+
+/* Animation d'entrée échelonnée */
+.masonry-card:nth-child(1) { animation-delay: 0s; }
+.masonry-card:nth-child(2) { animation-delay: 0.1s; }
+.masonry-card:nth-child(3) { animation-delay: 0.2s; }
+.masonry-card:nth-child(4) { animation-delay: 0.3s; }
+.masonry-card:nth-child(5) { animation-delay: 0.4s; }
+.masonry-card:nth-child(6) { animation-delay: 0.5s; }
+
+/* Responsive - 2 colonnes sur tablette */
+@media screen and (max-width: 900px) {
+    .masonry-grid {
+        columns: 2;
+        column-gap: 20px;
+    }
+}
+
+/* Responsive - masonry caché sur mobile */
+@media screen and (max-width: 768px) {
+    .masonry-grid {
+        display: none;
+    }
+}
+
+/* ==================== MASONRY CARD EXPANDED ==================== */
+
+.masonry-card-expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 90%;
+    max-width: 700px;
+    max-height: 85vh;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(255, 255, 255, 0.95) 100%
+    );
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 24px;
+    border: 2px solid var(--orange);
+    box-shadow: 
+        0 30px 80px rgba(249, 166, 26, 0.3),
+        0 15px 40px rgba(0, 0, 0, 0.15);
+    padding: 50px;
+    z-index: 10001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow-y: auto;
+}
+
+.masonry-card-expanded.expanded {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.masonry-card-expanded h3 {
+    font-family: 'Alan Sans', sans-serif;
+    font-size: 2.2em;
+    color: var(--orange);
+    margin: 0 0 25px 0;
+    text-align: center;
+    position: relative;
+}
+
+.masonry-card-expanded h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--orange), transparent);
+    border-radius: 2px;
+}
+
+.masonry-card-expanded .masonry-intro {
+    font-family: 'Alan Sans', sans-serif;
+    font-size: 1.15em;
+    line-height: 1.8;
+    color: var(--texte);
+    text-align: center;
+    margin: 20px 0 30px 0;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(249, 166, 26, 0.3);
+}
+
+.masonry-card-expanded .masonry-full-details p {
+    font-family: 'Alan Sans', sans-serif;
+    font-size: 1.05em;
+    line-height: 1.9;
+    color: var(--texte);
+    text-align: justify;
+    margin: 0 0 20px 0;
+}
+
+.masonry-card-expanded .masonry-full-details p:last-child {
+    margin-bottom: 0;
+}
+
+.masonry-card-expanded::-webkit-scrollbar {
+    width: 6px;
+}
+
+.masonry-card-expanded::-webkit-scrollbar-track {
+    background: rgba(249, 166, 26, 0.1);
+    border-radius: 3px;
+}
+
+.masonry-card-expanded::-webkit-scrollbar-thumb {
+    background: var(--orange);
+    border-radius: 3px;
+}
+
+/* ==================== ACCORDÉON MOBILE ==================== */
+
+.accordion-container {
+    display: none; /* Caché sur desktop */
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.accordion-item {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.7) 100%
+    );
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 16px;
+    border: 1px solid rgba(249, 166, 26, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: visible;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.accordion-item.active {
+    border-color: var(--orange);
+    box-shadow: 0 8px 30px rgba(249, 166, 26, 0.2);
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    gap: 15px;
+    transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+    background: rgba(249, 166, 26, 0.05);
+}
+
+.accordion-icon {
+    font-size: 1.8em;
+}
+
+.accordion-header h3 {
+    font-family: 'Alan Sans', sans-serif;
+    font-size: 1.2em;
+    color: var(--orange);
+    margin: 0;
+    flex: 1;
+}
+
+.accordion-arrow {
+    font-size: 0.8em;
+    color: var(--orange);
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+    padding: 0 20px;
+}
+
+.accordion-item.active .accordion-body {
+    max-height: 300px;
+    padding: 0 20px 20px 20px;
+}
+
+.accordion-body p {
+    font-size: 1em;
+    line-height: 1.7;
+    color: var(--texte);
+    margin: 0;
+}
+
+/* ==================== RESPONSIVE SOCIÉTÉ ==================== */
+
+@media screen and (max-width: 768px) {
+    #societe {
+        padding: 40px 15px 60px;
+        text-align: center;
+    }
+    
+    /* Titre réduit et centré */
+    #societe .section-titre {
+        font-size: 6em;
+        padding-top: 6vh;
+        margin-bottom: 20px;
+        line-height: 1.1;
+        text-align: center;
+        word-wrap: break-word;
+    }
+    
+    /* Masonry caché sur mobile */
+    .masonry-grid {
+        display: none !important;
+    }
+    
+    /* Accordéon affiché et centré sur mobile */
+    .accordion-container {
+        display: flex !important;
+        width: 100%;
+        max-width: 100%;
+        padding: 15px 0 30px;
+        margin: 0 auto;
+    }
+    
+    .accordion-item {
+        margin: 0 5px;
+    }
+    
+    .accordion-header {
+        padding: 16px 15px;
+        gap: 12px;
+    }
+    
+    .accordion-header h3 {
+        font-size: 1.1em;
+    }
+    
+    .accordion-body p {
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
+
+    .societe-content {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+    
+    /* Masonry Expanded Mobile */
+    .masonry-card-expanded {
+        width: 90vw !important;
+        max-width: 90vw !important;
+        max-height: 65vh !important;
+        top: 45% !important;
+        padding: 25px 18px 30px !important;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .masonry-card-expanded::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .masonry-card-expanded h3 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    
+    .masonry-card-expanded .masonry-intro {
+        font-size: 0.95em;
+        margin: 15px 0 20px;
+        padding-bottom: 15px;
+    }
+    
+    .masonry-card-expanded .masonry-full-details p {
+        font-size: 0.9em;
+        line-height: 1.7;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #societe .section-titre {
+        font-size: 4em;
+        padding-top: 5vh;
+    }
+    
+    .accordion-header {
+        padding: 14px 12px;
+    }
+    
+    .accordion-header h3 {
+        font-size: 1em;
+    }
+    
+    .accordion-icon {
+        font-size: 1.5em;
+    }
+    
+    .accordion-body p {
+        font-size: 0.9em;
+    }
+    
+    .societe-content {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    #societe .section-titre {
+        font-size: 3.5em;
+    }
+    
+    .accordion-header h3 {
+        font-size: 0.95em;
+    }
+}

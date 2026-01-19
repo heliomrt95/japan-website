@@ -1,0 +1,605 @@
+/* ==================== SECTION HISTOIRE ==================== */
+
+#histoire {
+    background: var(--blanc);
+    padding: 100px 20px 100px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#histoire::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120vh;
+    background: linear-gradient(
+        to bottom,
+        #f9a61a80 0%,
+        rgba(249, 166, 26, 0.5) 30%,
+        rgba(249, 166, 26, 0.3) 60%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+#histoire .section-titre {
+    font-size: 10em;
+    margin-bottom: 18vh;
+}
+
+/* ==================== TIMELINE ==================== */
+
+.timeline-spacer {
+    height: 220px;
+}
+
+.timeline-container {
+    position: relative;
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline-svg {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.timeline-path {
+    stroke: var(--orange);
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 6px rgba(249, 166, 26, 0.6));
+}
+
+/* Point fixe au début du tracé */
+.timeline-start-circle {
+    fill: var(--orange);
+    filter: drop-shadow(0 0 8px rgba(249, 166, 26, 0.8));
+}
+
+/* Point qui bouge */
+.timeline-progress-circle {
+    fill: var(--rouge);
+    filter: drop-shadow(0 0 12px rgba(200, 50, 50, 0.9));
+}
+
+/* ==================== CONTENU HISTOIRE ==================== */
+
+.histoire-content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    position: relative;
+    z-index: 2;
+    padding: 50px 80px;
+}
+
+.histoire-row {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+}
+
+/* ==================== ILLUSTRATIONS EN ARRIÈRE-PLAN ==================== */
+
+.histoire-illustration-bg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 150%;
+    z-index: -1;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.histoire-illustration-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.15;
+    filter: grayscale(30%);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.histoire-row:hover .histoire-illustration-bg img {
+    opacity: 0.2;
+}
+
+/* Row 1 (ilu1) */
+.histoire-row:nth-child(1) .histoire-illustration-bg {
+    right: 5%;
+    width: 40%;
+    top: 60%;
+}
+
+.histoire-row:nth-child(1) .histoire-illustration-bg img {
+    transform: scale(2) rotate(-135deg) translateX(-10%);
+    object-position: center right;
+}
+
+/* Row 2 (ilu2) */
+.histoire-row:nth-child(2) .histoire-illustration-bg {
+    left: -5%;
+    right: auto;
+    width: 50%;
+}
+
+.histoire-row:nth-child(2) .histoire-illustration-bg img {
+    transform: scale(1.6);
+    object-position: center left;
+}
+
+/* Row 3 (ilu3) */
+.histoire-row:nth-child(3) .histoire-illustration-bg {
+    left: 15%;
+    right: auto;
+    width: 60%;
+}
+
+.histoire-row:nth-child(3) .histoire-illustration-bg img {
+    transform: scale(1.3);
+    object-position: center right;
+}
+
+/* Row 4 (ilu4) */
+.histoire-row:nth-child(4) .histoire-illustration-bg {
+    left: -5%;
+    right: auto;
+    width: 50%;
+}
+
+.histoire-row:nth-child(4) .histoire-illustration-bg img {
+    transform: scale(1);
+    object-position: center left;
+}
+
+/* ==================== BLOCS HISTOIRE ==================== */
+
+.histoire-block {
+    position: relative;
+    width: 45%;
+    padding: 20px;
+    padding-bottom: 35px;
+    background: rgba(249, 167, 26, 0.05);
+    backdrop-filter: none;
+    border-radius: 25px;
+    border: 1px solid rgba(249, 166, 26, 0.3);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateX(-50px) translateY(30px);
+    cursor: pointer;
+    z-index: 10;
+    overflow: visible;
+}
+
+.histoire-row:nth-child(odd) .histoire-block {
+    margin-left: 0;
+    margin-right: auto;
+    text-align: center;
+    transform: translateX(-50px) translateY(30px);
+}
+
+.histoire-row:nth-child(even) .histoire-block {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: center;
+    transform: translateX(50px) translateY(30px);
+}
+
+.histoire-block.visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+.histoire-block h3 {
+    font-family: 'Alan Sans', sans-serif;
+    font-size: 1.5em;
+    color: var(--rouge);
+    margin-bottom: 15px;
+    margin-top: 0;
+    text-shadow: none;
+    font-weight: 700;
+}
+
+.histoire-block p {
+    font-family: 'Alan Sans';
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--texte);
+    text-shadow: none;
+    margin: 0;
+}
+
+.histoire-block:hover {
+    border-color: var(--rouge);
+    box-shadow: 0 12px 40px 0 #c8323240;
+}
+
+/* ==================== DÉTAILS CACHÉS ==================== */
+
+.histoire-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
+    margin-top: 0;
+}
+
+.histoire-details p {
+    font-size: 1em;
+    line-height: 1.8;
+    color: var(--texte);
+    margin: 0;
+}
+
+/* ==================== CLONE DU BLOC ==================== */
+
+.histoire-block-clone {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(0.8) !important;
+    width: 60% !important;
+    max-width: 700px !important;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 10001;
+    margin: 0 !important;
+    padding: 30px;
+    background: rgba(#F5F5F7) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    border: 1px solid var(--orange) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.histoire-block-clone.expanded {
+    transform: translate(-50%, -50%) scale(1) !important;
+    opacity: 1;
+}
+
+.histoire-block-clone h3 {
+    font-size: 1.8em;
+    color: var(--rouge);
+    margin-bottom: 15px;
+    margin-top: 0;
+    text-align: center;
+}
+
+.histoire-block-clone > p {
+    font-family: 'Alan Sans';
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: var(--texte);
+    text-align: center;
+    margin: 0;
+}
+
+.histoire-block-clone .histoire-details {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 20px;
+}
+
+.histoire-block-clone .histoire-details p {
+    font-size: 1em;
+    line-height: 1.8;
+    color: var(--texte);
+    text-align: center;
+}
+
+.histoire-block-clone::-webkit-scrollbar {
+    width: 6px;
+}
+
+.histoire-block-clone::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.histoire-block-clone::-webkit-scrollbar-thumb {
+    background: var(--orange);
+    border-radius: 3px;
+}
+
+/* ==================== RESPONSIVE HISTOIRE ==================== */
+
+@media screen and (max-width: 768px) {
+    #histoire {
+        padding: 60px 15px;
+    }
+    
+    #histoire .section-titre {
+        font-size: 6em;
+        padding-top: 15vh;
+        margin-bottom: 10vh;
+    }
+    
+    .timeline-spacer {
+        height: 50px;
+    }
+    
+    /* Timeline - ligne droite à gauche sur mobile */
+    .timeline-svg {
+        position: absolute;
+        left: 5px;
+        top: 0;
+        transform: none;
+        width: 30px;
+        height: 100%;
+        overflow: visible;
+    }
+    
+    .timeline-start-circle {
+        r: 6;
+        cy: 10;
+    }
+    
+    .timeline-progress-circle {
+        r: 5;
+    }
+    
+    .timeline-path {
+        stroke-width: 2;
+    }
+    
+    /* Cache les illustrations sur mobile */
+    .histoire-illustration-bg {
+        display: none;
+    }
+    
+    .histoire-content {
+        padding: 30px 15px;
+        gap: 40px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .histoire-row {
+        min-height: auto;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    
+    /* Blocs histoire - pleine largeur avec marge pour timeline */
+    .histoire-block {
+        width: calc(100% - 50px) !important;
+        max-width: none !important;
+        margin-left: 40px !important;
+        margin-right: 0 !important;
+        padding: 20px;
+        padding-bottom: 40px;
+        box-sizing: border-box;
+    }
+    
+    .histoire-row:nth-child(odd) .histoire-block,
+    .histoire-row:nth-child(even) .histoire-block {
+        width: calc(100% - 50px) !important;
+        max-width: none !important;
+        margin-left: 40px !important;
+        margin-right: 0 !important;
+        text-align: center;
+        transform: translateY(30px);
+    }
+    
+    .histoire-block.visible {
+        transform: translateY(0) !important;
+    }
+    
+    .histoire-block h3 {
+        font-size: 1.2em;
+    }
+    
+    .histoire-block p {
+        font-size: 1em;
+        line-height: 1.7;
+    }
+    
+    /* Clone agrandi mobile - CENTRÉ */
+    .histoire-block-clone {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 85vw !important;
+        max-width: 85vw !important;
+        max-height: 60vh !important;
+        padding: 20px 15px !important;
+        margin: 0 !important;
+        overflow-y: auto;
+        box-sizing: border-box !important;
+    }
+    
+    .histoire-block-clone.expanded {
+        transform: translate(-50%, -50%) !important;
+    }
+    
+    .histoire-block-clone h3 {
+        font-size: 1.3em;
+        margin-bottom: 12px;
+        margin-top: 0;
+    }
+    
+    .histoire-block-clone > p {
+        font-size: 0.95em;
+        line-height: 1.6;
+        margin-bottom: 10px;
+    }
+    
+    .histoire-block-clone .histoire-details {
+        margin-top: 12px;
+        max-height: none;
+    }
+    
+    .histoire-block-clone .histoire-details p {
+        font-size: 0.9em;
+        line-height: 1.6;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    #histoire .section-titre {
+        font-size: 5em;
+        padding-top: 12vh;
+        margin-bottom: 8vh;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #histoire {
+        padding: 40px 10px;
+    }
+    
+    #histoire .section-titre {
+        font-size: 4em;
+        padding-top: 12vh;
+        margin-bottom: 8vh;
+    }
+    
+    .timeline-spacer {
+        height: 40px;
+    }
+    
+    .timeline-start-circle {
+        r: 5;
+        cy: 10;
+    }
+    
+    .timeline-progress-circle {
+        r: 4;
+    }
+    
+    .histoire-block {
+        width: calc(100% - 40px) !important;
+        margin-left: 35px !important;
+        margin-right: 5px !important;
+        padding: 15px;
+        padding-bottom: 35px;
+    }
+    
+    .histoire-row:nth-child(odd) .histoire-block,
+    .histoire-row:nth-child(even) .histoire-block {
+        width: calc(100% - 40px) !important;
+        margin-left: 35px !important;
+        margin-right: 5px !important;
+    }
+    
+    .histoire-block h3 {
+        font-size: 1.1em;
+    }
+    
+    .histoire-block p {
+        font-size: 0.95em;
+    }
+    
+    .histoire-block-clone {
+        width: 90vw !important;
+        max-width: 90vw !important;
+        max-height: 55vh !important;
+        padding: 18px 12px !important;
+    }
+    
+    .histoire-block-clone h3 {
+        font-size: 1.15em;
+    }
+    
+    .histoire-block-clone > p {
+        font-size: 0.9em;
+    }
+    
+    .histoire-block-clone .histoire-details p {
+        font-size: 0.85em;
+    }
+
+    .histoire-content {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    #histoire .section-titre {
+        font-size: 3.5em;
+        padding-top: 10vh;
+        margin-bottom: 6vh;
+    }
+
+    #histoire h3 {
+        margin-bottom: 4vh;
+        font-family: 'Alan Sans', sans-serif;
+    }
+
+    .timeline-svg {
+        left: 2px;
+        width: 20px;
+    }
+    
+    .timeline-start-circle {
+        r: 4;
+        cy: 8;
+    }
+    
+    .timeline-progress-circle {
+        r: 3;
+    }
+    
+    .histoire-content {
+        padding: 15px 8px;
+        gap: 25px;
+    }
+    
+    .histoire-block {
+        width: calc(100% - 35px) !important;
+        margin-left: 30px !important;
+        margin-right: 5px !important;
+    }
+    
+    .histoire-row:nth-child(odd) .histoire-block,
+    .histoire-row:nth-child(even) .histoire-block {
+        width: calc(100% - 35px) !important;
+        margin-left: 30px !important;
+        margin-right: 5px !important;
+    }
+    
+    .histoire-block-clone {
+        width: 92vw !important;
+        max-width: 92vw !important;
+        max-height: 50vh !important;
+        padding: 15px 10px !important;
+        right: auto !important;
+    }
+    
+    .histoire-block-clone h3 {
+        font-size: 1.05em;
+    }
+    
+    .histoire-block-clone > p {
+        font-size: 0.85em;
+        line-height: 1.5;
+    }
+    
+    .histoire-block-clone .histoire-details p {
+        font-size: 0.8em;
+        line-height: 1.5;
+    }
+}

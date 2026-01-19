@@ -1,0 +1,285 @@
+/* ==================== HEADER & NAVBAR ==================== */
+
+header {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar {
+    width: 600px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background: rgba(245, 245, 247, 0.5);
+    font-weight: bold;
+    font-family: 'Alan Sans', sans-serif;
+    box-shadow: 2px 0px 50px 25px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 1s ease-in-out;
+    transition-delay: 1s;
+}
+
+.navbar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    justify-content: space-around;
+    margin: 0;
+}
+
+.navbar li a {
+    text-decoration: none;
+    border-radius: 15px;
+}
+
+.navbar a {
+    color: var(--texte);
+    text-shadow: none;
+    transition: color 0.3s ease;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+}
+
+.navbar a:hover {
+    color: var(--orange);
+    text-shadow: none;
+    transform: translateY(-2px);
+}
+
+.navbar a:active {
+    color: rgb(255, 255, 255);
+}
+
+.navbar a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 5px;
+    left: 0;
+    background-color: rgb(249 166 26);
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.5s ease-in-out;
+}
+
+.navbar a:hover::before {
+    visibility: visible;
+    transform: scaleX(60%);
+}
+
+/* ==================== HAMBURGER BUTTON (Mobile) ==================== */
+
+.hamburger {
+    display: none; /* Caché par défaut sur desktop */
+}
+
+/* ==================== RESPONSIVE HEADER ==================== */
+
+@media screen and (max-width: 768px) {
+    /* Cache la navbar desktop */
+    .navbar {
+        display: none;
+    }
+    
+    /* Hamburger Button */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        background: rgba(245, 245, 247, 0.8);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        z-index: 10010;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+    
+    .hamburger:hover {
+        background: rgba(245, 245, 247, 0.95);
+        transform: scale(1.05);
+    }
+    
+    .hamburger-line {
+        width: 24px;
+        height: 3px;
+        background: var(--orange);
+        border-radius: 3px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
+    }
+    
+    /* Animation hamburger -> X */
+    .hamburger.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .hamburger.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    
+    .hamburger.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+    
+    .hamburger.active {
+        background: rgba(245, 245, 247, 0.95);
+    }
+    
+    .hamburger.active .hamburger-line {
+        background: var(--rouge);
+    }
+    
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(249, 166, 26, 0.3);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        z-index: 10000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+    }
+    
+    .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        z-index: 10005;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .mobile-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    
+    .mobile-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+    
+    .mobile-menu li {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .mobile-menu.active li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Animation échelonnée */
+    .mobile-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-menu.active li:nth-child(3) { transition-delay: 0.3s; }
+    .mobile-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+    
+    .mobile-menu a {
+        font-family: 'Alan Sans', sans-serif;
+        font-size: 2em;
+        font-weight: 700;
+        color: var(--blanc);
+        text-decoration: none;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        padding: 15px 40px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        display: block;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu a:hover {
+        background: rgba(255, 255, 255, 0.25);
+        border-color: var(--blanc);
+        transform: scale(1.05);
+        color: var(--blanc);
+    }
+    
+    .mobile-menu a:active {
+        transform: scale(0.95);
+    }
+
+    .navbar {
+        width: 95%;
+    }
+    
+    .navbar a {
+        padding: 12px 10px;
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        width: 100%;
+        border-radius: 0;
+    }
+    
+    .navbar ul {
+        justify-content: space-between;
+    }
+    
+    .navbar a {
+        padding: 10px 8px;
+        font-size: 0.8em;
+    }
+}
+
+/* Sur desktop, cacher le hamburger et le menu mobile */
+@media screen and (min-width: 769px) {
+    .hamburger,
+    .mobile-menu,
+    .mobile-menu-overlay {
+        display: none !important;
+    }
+}

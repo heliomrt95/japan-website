@@ -1,0 +1,151 @@
+/* ==================== VARIABLES & BASE ==================== */
+
+/* Variables de couleurs */
+:root {
+    --orange: #f9a61a;
+    --rouge: #c83232;
+    --blanc: #F5F5F7;
+    --noir: #1a1a1a;
+    --noir-clair: #2a2a2a;
+    --texte: #1a1a1a;
+}
+
+/* Reset et styles de base */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--blanc);
+    color: var(--texte);
+    overflow-x: hidden;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden !important;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--blanc);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--orange);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e07816;
+}
+
+/* Main content */
+.main-content {
+    display: none;
+}
+
+/* Section content générique */
+.content-section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 100px 20px 50px 20px;
+    background: var(--blanc);
+}
+
+/* Container de section */
+.section-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Titre de section */
+.section-titre {
+    font-family: 'Ephesis';
+    font-size: 12em;
+    margin: 0;
+    margin-bottom: 14vh;
+    padding: 0;
+    padding-top: 25vh;
+    color: var(--orange);
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+/* Contenu texte générique */
+.text-content {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px;
+    text-align: center;
+    color: var(--texte);
+    position: relative;
+    z-index: 1;
+}
+
+/* ==================== RESPONSIVE BASE ==================== */
+
+@media screen and (max-width: 768px) {
+    .content-section {
+        padding: 80px 10px 40px 10px;
+    }
+
+    .text-content h2,
+    .section-titre {
+        font-size: 6em;
+        padding-top: 10vh;
+    }
+
+    .text-content p {
+        font-size: 1.1em;
+    }
+
+    .text-content {
+        padding: 30px;
+        margin: 50px auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content-section {
+        padding: 60px 5px 30px 5px;
+    }
+
+    .text-content h2,
+    .section-titre {
+        font-size: 4em;
+        padding-top: 8vh;
+    }
+
+    .text-content p {
+        font-size: 1em;
+    }
+
+    .text-content {
+        padding: 20px;
+        margin: 40px auto;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .text-content h2,
+    .section-titre {
+        font-size: 3.5em;
+    }
+}
