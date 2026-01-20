@@ -10,7 +10,7 @@
 #societe .section-titre {
     padding-top: 10vh;
     color: var(--blanc);
-    -webkit-text-stroke: 4px var(--blanc);
+    -webkit-text-stroke: 1.5px var(--blanc);
     font-size: 10em;
     text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
 }
@@ -367,6 +367,7 @@
         margin-bottom: 20px;
         line-height: 1.1;
         text-align: center;
+        text-shadow: none;
         word-wrap: break-word;
     }
     

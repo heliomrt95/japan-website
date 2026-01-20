@@ -115,6 +115,7 @@ body, html {
     .section-titre {
         font-size: 6em;
         padding-top: 10vh;
+        text-shadow: none;
     }
 
     .text-content p {

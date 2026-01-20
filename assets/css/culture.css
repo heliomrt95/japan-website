@@ -15,7 +15,7 @@
 
 #culture .section-titre {
     font-size: 10em;
-    -webkit-text-stroke: 4px var(--orange);
+    -webkit-text-stroke: 1.5px var(--orange);
 }
 
 #culture-texte {
@@ -259,6 +259,7 @@
     #culture .section-titre {
         font-size: 6em;
         line-height: 1.1;
+        text-shadow: none;
     }
     
     /* Cache les carousels sur mobile */

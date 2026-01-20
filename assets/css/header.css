@@ -127,7 +127,7 @@ header {
     .hamburger-line {
         width: 24px;
         height: 3px;
-        background: var(--orange);
+        background: var(--rouge);
         border-radius: 3px;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         transform-origin: center;
