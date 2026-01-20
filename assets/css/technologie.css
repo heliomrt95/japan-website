@@ -2,14 +2,14 @@
 
 #technologie {
     background: #F5F5F7;
-    background: linear-gradient(180deg, rgba(245, 245, 247, 1) 0%, rgba(249, 166, 26, 1) 100%);
+    background: linear-gradient(180deg, rgba(245, 245, 247, 1) 0%, #e26613 100%);
     padding-bottom: 100px;
     padding-top: 0;
     padding-bottom: 0;
 }
 
 #technologie .section-titre {
-    color: var(--orange);
+    color: var(--rouge);
     font-size: 10em;
     text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
     padding-top: 10vh;
@@ -384,28 +384,40 @@
 @media screen and (max-width: 768px) {
     #technologie {
         padding: 40px 15px 60px 15px;
+        text-align: center;
+        overflow-x: hidden;
     }
     
-    /* Titre redimensionné pour mobile */
+    /* Titre redimensionné et centré pour mobile */
     #technologie .section-titre {
-        font-size: 6em;
+        font-size: 5em;
         padding-top: 6vh;
         margin-bottom: 25px;
         line-height: 1.1;
+        text-align: center;
+        width: 100%;
+        word-wrap: break-word;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
     }
     
     .tech-content {
         grid-template-columns: 1fr;
         gap: 25px;
-        padding: 0 10px;
-        margin-top: 30px;
+        padding: 0;
+        margin: 30px auto 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     /* Carte tech mobile - taille et désactivation 3D */
     .tech-card {
         height: 150px;
-        width: 100%;
-        max-width: 100%;
+        width: calc(100% - 20px);
+        max-width: calc(100% - 20px);
+        margin: 0 auto;
         box-sizing: border-box;
         perspective: none;
         animation: none;
@@ -462,15 +474,18 @@
     .tech-card-expanded {
         position: fixed !important;
         top: 45% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) scale(0.8) !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        transform: translateY(-50%) scale(0.8) !important;
         width: 88vw !important;
         max-width: 88vw !important;
         max-height: 60vh !important;
         padding: 25px 18px 30px !important;
-        margin: 0 !important;
         box-sizing: border-box !important;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         /* Cache la scrollbar tout en gardant le scroll */
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* IE/Edge */
@@ -481,7 +496,7 @@
     }
     
     .tech-card-expanded.expanded {
-        transform: translate(-50%, -50%) scale(1) !important;
+        transform: translateY(-50%) scale(1) !important;
     }
     
     .tech-card-expanded h3 {
@@ -504,12 +519,14 @@
 
 @media screen and (max-width: 480px) {
     #technologie .section-titre {
-        font-size: 4em;
+        font-size: 3.5em;
         padding-top: 5vh;
     }
     
     .tech-card {
         height: 130px;
+        width: calc(100% - 16px);
+        max-width: calc(100% - 16px);
     }
     
     .tech-card-front h3 {
@@ -522,5 +539,39 @@
 
     .tech-content {
         gap: 20px;
+        padding: 0 5px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    #technologie {
+        padding: 30px 10px 50px;
+    }
+    
+    #technologie .section-titre {
+        font-size: 3em;
+        padding-top: 4vh;
+        margin-bottom: 20px;
+    }
+    
+    .tech-content {
+        gap: 15px;
+        padding: 0;
+        width: 100%;
+    }
+    
+    .tech-card {
+        height: 120px;
+        width: calc(100% - 10px);
+        max-width: calc(100% - 10px);
+        margin: 0 auto;
+    }
+    
+    .tech-card-front h3 {
+        font-size: 1.1em;
+    }
+    
+    .tech-card-front {
+        padding: 15px;
     }
 }

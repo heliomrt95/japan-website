@@ -2,8 +2,8 @@
 
 /* Variables de couleurs */
 :root {
-    --orange: #f9a61a;
-    --rouge: #c83232;
+    --orange: #fd5900;
+    --rouge: #d82036;
     --blanc: #F5F5F7;
     --noir: #1a1a1a;
     --noir-clair: #2a2a2a;
@@ -72,7 +72,8 @@ body, html {
 
 /* Titre de section */
 .section-titre {
-    font-family: 'Ephesis';
+    font-family: 'Ephesis', cursive;
+    font-weight: 400;
     font-size: 12em;
     margin: 0;
     margin-bottom: 14vh;
@@ -84,6 +85,10 @@ body, html {
     line-height: 1;
     position: relative;
     z-index: 1;
+    /* Amélioration rendu iOS/Safari */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     font-weight: 700;
     letter-spacing: 5px;
 }

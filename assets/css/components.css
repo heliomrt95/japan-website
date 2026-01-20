@@ -38,8 +38,9 @@
     border-radius: 50%;
     color: var(--rouge);
     font-size: 28px;
-    font-weight: 300;
+    font-weight: 600;
     line-height: 1;
+    -webkit-font-smoothing: antialiased;
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 10002;
@@ -225,7 +226,7 @@
     width: 50px;
     height: 50px;
     font-weight: 900;
-    background: rgba(249, 166, 26, 0.9);
+    background: #e26613;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 2px solid var(--orange);

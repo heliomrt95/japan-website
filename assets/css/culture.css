@@ -4,7 +4,7 @@
     background: linear-gradient(
         180deg,
         rgba(245, 245, 247, 1) 0%,
-        rgba(249, 166, 26, 1) 50%,
+        rgb(226, 102, 19) 50%,
         rgba(245, 245, 247, 1) 100%
     );
     justify-content: space-between;
@@ -22,7 +22,6 @@
 }
 
 /* ==================== CAROUSEL ==================== */
-
 .carousel-container {
     width: 100%;
     overflow: visible;

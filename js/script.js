@@ -53,6 +53,26 @@ document.addEventListener('DOMContentLoaded', () => { // attend que le DOM soit 
             e.stopPropagation(); // stoppe propagation
         }
     }, { passive: false, capture: true });
+    
+    // Gestion du swipe sur mobile pour déclencher la transition
+    let touchStartY = 0;
+    
+    window.addEventListener('touchstart', (e) => {
+        if (!transitionDone) {
+            touchStartY = e.touches[0].clientY;
+        }
+    }, { passive: true });
+    
+    window.addEventListener('touchend', (e) => {
+        if (!transitionDone) {
+            const touchEndY = e.changedTouches[0].clientY;
+            const deltaY = touchStartY - touchEndY;
+            // Si swipe vers le haut (delta > 50px)
+            if (deltaY > 50) {
+                triggerTransition();
+            }
+        }
+    }, { passive: true });
 
     // Carousel Animation
     const carouselContainers = document.querySelectorAll('.carousel-container'); // sélectionne tous les conteneurs de carrousel

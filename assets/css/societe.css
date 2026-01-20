@@ -2,7 +2,7 @@
 
 #societe {
     background-color: #F5F5F7;
-    background: linear-gradient(180deg, rgba(249, 166, 26, 1) 0%, rgba(245, 245, 247, 1) 100%);
+    background: linear-gradient(180deg, #e26613 0%, rgba(245, 245, 247, 1) 100%);
     overflow: visible;
     padding-bottom: 40px;
 }
@@ -408,13 +408,25 @@
     
     /* Masonry Expanded Mobile */
     .masonry-card-expanded {
+        position: fixed !important;
+        top: 45% !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        transform: translateY(-50%) !important;
         width: 90vw !important;
         max-width: 90vw !important;
         max-height: 65vh !important;
-        top: 45% !important;
         padding: 25px 18px 30px !important;
+        box-sizing: border-box !important;
+        -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         -ms-overflow-style: none;
+    }
+    
+    .masonry-card-expanded.expanded {
+        transform: translateY(-50%) scale(1) !important;
     }
     
     .masonry-card-expanded::-webkit-scrollbar {

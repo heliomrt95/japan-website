@@ -71,7 +71,7 @@ header {
     height: 2px;
     bottom: 5px;
     left: 0;
-    background-color: rgb(249 166 26);
+    background-color: #e26613;
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.5s ease-in-out;
