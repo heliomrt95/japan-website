@@ -15,6 +15,7 @@
 
 #culture .section-titre {
     font-size: 10em;
+    -webkit-text-stroke: 4px var(--orange);
 }
 
 #culture-texte {

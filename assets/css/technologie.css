@@ -10,6 +10,7 @@
 
 #technologie .section-titre {
     color: var(--rouge);
+    -webkit-text-stroke: 4px var(--rouge);
     font-size: 10em;
     text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
     padding-top: 10vh;
